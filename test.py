@@ -1,3 +1,4 @@
+import json
 from Loan import Loan
 from Debitor import Debitor, DebitorFactory
 
@@ -14,7 +15,9 @@ s = '''
     }
     '''
 
-loan = Loan(s)
+loan_dict = json.loads(s)
+
+loan = Loan(loan_dict)
 print(loan)
 
 debitor = DebitorFactory.get_debitor(loan)
